@@ -39,7 +39,7 @@ void display_grid(char grid[GRID_SIZE][GRID_SIZE],int explored[GRID_SIZE][GRID_S
             if (x == player_x && y == player_y) {
                 printf("P\t"); // Player's position
             }
-            else if(explored[y][x]=1){
+            else if(explored[y][x]==1){
                 printf("%c\t",grid[y][x]);
             }
              else {
@@ -183,7 +183,7 @@ int main() {
             } else if (key == 'd' || key == 'D') { // Move right
                 if (player_x < GRID_SIZE - 1) player_x++;
             } else if (key == '\r') { // Enter key to explore
-                explored[GRID_SIZE][GRID_SIZE] = 1;
+                explored[player_y][player_x] = 1;
                 if (grid[player_y][player_x] == 'T') { // Found a treasure
                     printf("\nYou found a treasure! +10 points.\n");
                     score += 10;
