@@ -184,7 +184,7 @@ int main() {
                 if (player_x < GRID_SIZE - 1) player_x++;
             } else if (key == '\r') { // Enter key to explore
                 explored[player_y][player_x] = 1;
-                if (grid[player_y][player_x] == 'T') { // Found a treasure
+                if (grid[player_y][player_x] == 'T'&& !explored[player_y][player_x) { // Found a treasure
                     printf("\nYou found a treasure! +10 points.\n");
                     score += 10;
                     treasures_remaining--;
@@ -194,12 +194,12 @@ int main() {
                         printf("\nCongratulations! You found all treasures!\n");
                         break;
                 }
-                 else if (grid[player_y][player_x] == 'X') { // Trap
+                 else if (grid[player_y][player_x] == 'X' && !explored[player_y][player_x]) { // Trap
                     printf("\nOh no! You stepped on a trap! Lost 1 health.\n");
                     health--;
                     grid[player_y][player_x] = 'X'; // Show trap
                 }
-                 else if (grid[player_y][player_x] == '+') { // Power-up
+                 else if (grid[player_y][player_x] == '+'&& !explored[player_y][player_x]) { // Power-up
                     printf("\nYou found a power-up! +1 health.\n");
                     health += 1;
                     grid[player_y][player_x] = '+'; // Show power-up
