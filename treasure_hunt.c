@@ -184,7 +184,7 @@ int main() {
                 if (player_x < GRID_SIZE - 1) player_x++;
             } else if (key == '\r') { // Enter key to explore
                 explored[player_y][player_x] = 1;
-                if (grid[player_y][player_x] == 'T'&& !explored[player_y][player_x) { // Found a treasure
+                if (grid[player_y][player_x] == 'T'&& !explored[player_y][player_x]) { // Found a treasure
                     printf("\nYou found a treasure! +10 points.\n");
                     score += 10;
                     treasures_remaining--;
